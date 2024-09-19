@@ -9,8 +9,8 @@
       />
       <button @click="listarPokemones()">Buscar</button>
     </div>
-    <div class="container">
-      <div class="imgpokemon">
+    <div class="container" id="container">
+      <div class="imgpokemon" id="imgpokemon">
         <h1 id="nompokemon">NOMBRE <br />{{ nombre }}</h1>
 
         <img :src="image" alt="" />
@@ -20,22 +20,23 @@
         </div>
       </div>
 
-      <div class="datospokemon">
+      <div class="datospokemon" id="datospokemon">
         <div id="numpokemon" class="estadisticas">
           # POKEDEX <br />
           {{ numpokedex }}
         </div>
         <br />
-        <div id="tipo" class="estadisticas">
+        <div id="tipo" class="estadisticas" >
           Tipos<br /><br />
-          {{ tipo1 }} <br />
-          {{ tipo2 }}
+          <h1 id="tipo1">{{ tipo1 }}</h1> 
+          <br>
+          <h1 id="tipo2">{{ tipo2 }}</h1>
         </div>
         <br />
-        <div id="debilidad" class="estadisticas">Debilidades<br />{{}}</div>
+        <div id="debilidad" class="estadisticas">Debilidades<br />{{debilidadesset}}</div>
         <br />
       </div>
-      <div class="estadspokemon">
+      <div class="estadspokemon" id="estadspokemon">
         <h1>ESTADISTICAS</h1>
         <div id="hp" class="estadisticas">HP <br />{{ statshp }}/252</div>
 
@@ -125,8 +126,11 @@ async function obtenerDebilidades(tipos) {
 }
 async function listarPokemones() {
   if (nombrepokemon == "" || nombrepokemon == null) {
-    document.body.style.backgroundImage =
-      "url('https://nintendo.pe/wp-content/uploads/2016/05/HddtBOT-copia.jpg')";
+    document.getElementById("container").style.backgroundImage="url('https://nintendo.pe/wp-content/uploads/2016/05/HddtBOT-copia.jpg')"
+    document.getElementById("imgpokemon").style.display="none"
+    document.getElementById("datospokemon").style.display="none"
+    document.getElementById("stadspokemon").style.display="none"
+
   } else {
     
 
@@ -148,6 +152,7 @@ async function listarPokemones() {
 
     if (data.types.length == 2) {
       tipo1.value = data.types[0].type.name;
+
 
       tipo2.value = data.types[1].type.name;
     } else {
@@ -234,6 +239,7 @@ async function listarPokemones() {
 }
 #tipo {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-around;
 }
