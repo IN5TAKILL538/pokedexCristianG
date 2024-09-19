@@ -127,13 +127,17 @@ async function obtenerDebilidades(tipos) {
 async function listarPokemones() {
   if (nombrepokemon == "" || nombrepokemon == null) {
     document.getElementById("container").style.backgroundImage="url('https://nintendo.pe/wp-content/uploads/2016/05/HddtBOT-copia.jpg')"
+    document.getElementById("container").style.backgroundPosition="center"
+     document.getElementById("container").style.backgroundSize="cover"
     document.getElementById("imgpokemon").style.display="none"
     document.getElementById("datospokemon").style.display="none"
-    document.getElementById("stadspokemon").style.display="none"
+    document.getElementById("estadspokemon").style.display="none"
 
   } else {
-    
-
+     document.getElementById("container").style.backgroundImage="url(https://e1.pxfuel.com/desktop-wallpaper/269/183/desktop-wallpaper-rotom-pokedex-backgrounds-pokedex.jpg)"
+    document.getElementById("imgpokemon").style.display="flex"
+    document.getElementById("datospokemon").style.display="flex"
+    document.getElementById("estadspokemon").style.display="flex"
     let url = "https://pokeapi.co/api/v2/pokemon/" + nombrepokemon;
 
     let { data } = await axios.get(url);
