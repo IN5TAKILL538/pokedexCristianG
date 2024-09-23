@@ -208,6 +208,8 @@ async function listarPokemones() {
 }
 .btntipo{
   background-color: rgb(5, 0, 0);
+  
+
 }
 
 .contenedorbarras {
