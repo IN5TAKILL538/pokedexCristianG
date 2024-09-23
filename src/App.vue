@@ -28,12 +28,15 @@
         <br />
         <div id="tipo" class="estadisticas" >
           Tipos<br /><br />
-          <h1 id="tipo1">{{ tipo1 }}</h1> 
+          <button id="tipo1" class="btntipo" :style="{ color: obtenerColorPorTipo(tipo1) }">{{ tipo1 }}</button> 
           <br>
-          <h1 id="tipo2">{{ tipo2 }}</h1>
+          <button id="tipo2" class="btntipo" :style="{ color: obtenerColorPorTipo(tipo2) }">{{ tipo2 }}</button>
         </div>
         <br />
-        <div id="debilidad" class="estadisticas">Debilidades<br />{{debilidadesset}}</div>
+        <div id="debilidad" class="estadisticas">
+      <button class="containerdebilidad" v-for="(debilidad, index) in debilidades" :key="index" :style="{ color: obtenerColorPorTipo(debilidad) }">
+        {{ debilidad }}
+      </button></div>
         <br />
       </div>
       <div class="estadspokemon" id="estadspokemon">
@@ -108,6 +111,30 @@ let tipo2 = ref("");
 let altura = ref("");
 let peso = ref("");
 let debilidades = ref([]);
+function obtenerColorPorTipo(tipo) {
+    const colores = {
+        normal: '#A8A878',
+        fire: '#F08030',
+        water: '#6890F0',
+        grass: '#78C850',
+        electric: '#F8D030',
+        ice: '#98D8D8',
+        fighting: '#C03028',
+        poison: '#A040A0',
+        ground: '#E0C068',
+        flying: '#A890F0',
+        psychic: '#F85888',
+        bug: '#A8B820',
+        rock: '#B8A038',
+        ghost: '#705898',
+        dragon: '#7038F8',
+        dark: '#705848',
+        steel: '#B8B8D0',
+        fairy: '#F0B6BC',
+    };
+
+    return colores[tipo] || '#FFFFFF'; // Color por defecto
+}
 
 async function obtenerDebilidades(tipos) {
   const debilidadesSet = new Set();
@@ -121,11 +148,11 @@ async function obtenerDebilidades(tipos) {
       debilidadesSet.add(debilidad.name);
     }
   }
-  console.log(debilidadesSet + "debilidades");
+  console.log(debilidadesSet);
   return Array.from(debilidadesSet);
 }
 async function listarPokemones() {
-  if (nombrepokemon == "" || nombrepokemon == null) {
+  if (nombrepokemon == "" || nombrepokemon == null ) {
     document.getElementById("container").style.backgroundImage="url('https://nintendo.pe/wp-content/uploads/2016/05/HddtBOT-copia.jpg')"
     document.getElementById("container").style.backgroundPosition="center"
      document.getElementById("container").style.backgroundSize="cover"
@@ -134,6 +161,7 @@ async function listarPokemones() {
     document.getElementById("estadspokemon").style.display="none"
 
   } else {
+    document.getElementById("container").style.display="flex"
      document.getElementById("container").style.backgroundImage="url(https://e1.pxfuel.com/desktop-wallpaper/269/183/desktop-wallpaper-rotom-pokedex-backgrounds-pokedex.jpg)"
     document.getElementById("imgpokemon").style.display="flex"
     document.getElementById("datospokemon").style.display="flex"
@@ -162,7 +190,7 @@ async function listarPokemones() {
     } else {
       tipo1.value = data.types[0].type.name;
 
-      tipo2.value = "-";
+      tipo2.value = "";
     }
     altura.value = data.height / 10;
     peso.value = data.weight / 10;
@@ -174,6 +202,16 @@ async function listarPokemones() {
 
 
 <style>
+.containerdebilidad{
+  background-color: rgb(5, 0, 0);
+  
+}
+.btntipo{
+  background-color: rgb(5, 0, 0);
+  
+
+}
+
 .contenedorbarras {
   width: 256px;
 
@@ -207,7 +245,7 @@ async function listarPokemones() {
   background-image: url(https://e1.pxfuel.com/desktop-wallpaper/269/183/desktop-wallpaper-rotom-pokedex-backgrounds-pokedex.jpg);
   background-size: cover;
   background-position: center;
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
