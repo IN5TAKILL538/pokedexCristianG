@@ -29,12 +29,12 @@
         <div id="tipo" class="estadisticas" >
           Tipos<br /><br />
           <button id="tipo1" class="btntipo" :style="{ color: obtenerColorPorTipo(tipo1) }">{{ tipo1 }}</button> 
-          <br>
+          
           <button id="tipo2" class="btntipo" :style="{ color: obtenerColorPorTipo(tipo2) }">{{ tipo2 }}</button>
         </div>
         <br />
         <div id="debilidad" class="estadisticas">
-      <button class="containerdebilidad" v-for="(debilidad, index) in debilidades" :key="index" :style="{ Color: obtenerColorPorTipo(debilidad) }">
+      <button class="containerdebilidad" v-for="(debilidad, index) in debilidades" :key="index" :style="{ color: obtenerColorPorTipo(debilidad) }">
         {{ debilidad }}
       </button></div>
         <br />
@@ -203,16 +203,11 @@ async function listarPokemones() {
 
 <style>
 .containerdebilidad{
-  display: block;
   background-color: rgb(5, 0, 0);
   
 }
 .btntipo{
-  display: block;
-
   background-color: rgb(5, 0, 0);
-  
-
 }
 
 .contenedorbarras {
