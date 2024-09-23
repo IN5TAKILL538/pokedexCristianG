@@ -203,10 +203,13 @@ async function listarPokemones() {
 
 <style>
 .containerdebilidad{
+  display: block;
   background-color: rgb(5, 0, 0);
   
 }
 .btntipo{
+  display: block;
+
   background-color: rgb(5, 0, 0);
   
 
