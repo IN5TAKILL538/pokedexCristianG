@@ -34,7 +34,7 @@
         </div>
         <br />
         <div id="debilidad" class="estadisticas">
-      <button class="containerdebilidad" v-for="(debilidad, index) in debilidades" :key="index" :style="{ backgroundcolor: obtenerColorPorTipo(debilidad) }">
+      <button class="containerdebilidad" v-for="(debilidad, index) in debilidades" :key="index" :style="{ backgroundColor: obtenerColorPorTipo(debilidad) }">
         {{ debilidad }}
       </button></div>
         <br />
