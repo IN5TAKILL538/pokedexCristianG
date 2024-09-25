@@ -10,10 +10,10 @@
       <button @click="listarPokemones()">Buscar</button>
     </div>
     <div class="container" id="container">
-      <div class="imgpokemon" id="imgpokemon">
+      <div class="imgpokemon" id="imgpokemon" >
         <h1 id="nompokemon">NOMBRE <br />{{ nombre }}</h1>
 
-        <img :src="image" alt="" />
+        <img :src="image" alt="" id="imagenpoke" :style="{background: obtenerColorPorTipo(tipo1)}"/>
         <div class="alturapeso">
           <h1 class="altura">Altura: {{ altura }}m</h1>
           <h1 class="peso">Peso: {{ peso }}Kg</h1>
@@ -28,13 +28,13 @@
         <br />
         <div id="tipo" class="estadisticas" >
           Tipos<br /><br />
-          <button id="tipo1" class="btntipo" :style="{ color: obtenerColorPorTipo(tipo1) }">{{ tipo1 }}</button> 
+          <button id="tipo1" class="btntipo" :style="{ background: obtenerColorPorTipo(tipo1) }">{{ tipo1 }}</button> 
           <br>
-          <button id="tipo2" class="btntipo" :style="{ color: obtenerColorPorTipo(tipo2) }">{{ tipo2 }}</button>
+          <button id="tipo2" class="btntipo" :style="{ background: obtenerColorPorTipo(tipo2) }">{{ tipo2 }}</button>
         </div>
         <br />
         <div id="debilidad" class="estadisticas">
-      <button class="containerdebilidad" v-for="(debilidad, index) in debilidades" :key="index" :style="{ color: obtenerColorPorTipo(debilidad) }">
+      <button class="containerdebilidad" v-for="(debilidad, index) in debilidades" :key="index" :style="{ background: obtenerColorPorTipo(debilidad) }">
         {{ debilidad }}
       </button></div>
         <br />
@@ -153,7 +153,7 @@ async function obtenerDebilidades(tipos) {
 }
 async function listarPokemones() {
   if (nombrepokemon == "" || nombrepokemon == null ) {
-    document.getElementById("container").style.backgroundImage="url('https://nintendo.pe/wp-content/uploads/2016/05/HddtBOT-copia.jpg')"
+    
     document.getElementById("container").style.backgroundPosition="center"
      document.getElementById("container").style.backgroundSize="cover"
     document.getElementById("imgpokemon").style.display="none"
@@ -162,7 +162,7 @@ async function listarPokemones() {
 
   } else {
     document.getElementById("container").style.display="flex"
-     document.getElementById("container").style.backgroundImage="url(https://e1.pxfuel.com/desktop-wallpaper/269/183/desktop-wallpaper-rotom-pokedex-backgrounds-pokedex.jpg)"
+     
     document.getElementById("imgpokemon").style.display="flex"
     document.getElementById("datospokemon").style.display="flex"
     document.getElementById("estadspokemon").style.display="flex"
@@ -202,13 +202,30 @@ async function listarPokemones() {
 
 
 <style>
+@media (min-width: 1000px){
+  body{
+    margin-right: 150px;
+    margin-left: 150px;
+  }
+}
+body{
+  background-image: url(https://i.pinimg.com/564x/49/68/12/496812978f3eacb8871b88f4008e3d22.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover
+;
+   border: 2px solid black;
+  
+}
 .containerdebilidad{
   background-color: rgb(5, 0, 0);
-  
+  border-radius: 6px;
+  border: 1px;
 }
 .btntipo{
   background-color: rgb(5, 0, 0);
-  
+  border-radius: 6px;
+  border: 1px;
 
 }
 
@@ -216,7 +233,7 @@ async function listarPokemones() {
   width: 256px;
 
   height: 10px;
-  border: 2px solid black;
+  border: 1px solid black;
 }
 .barrastats {
   height: 10px;
@@ -229,7 +246,8 @@ async function listarPokemones() {
   flex-wrap: nowrap;
 }
 .header {
-  background-image: url(https://cdn.alfabetajuega.com/alfabetajuega/2019/03/iniciales-1.jpg);
+  background-image: url(https://i.pinimg.com/originals/fe/99/25/fe9925baad42556c34a7a13bbf4fa6bf.gif);
+  opacity: 0.8;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -242,7 +260,7 @@ async function listarPokemones() {
   height: 200px;
 }
 .container {
-  background-image: url(https://e1.pxfuel.com/desktop-wallpaper/269/183/desktop-wallpaper-rotom-pokedex-backgrounds-pokedex.jpg);
+  
   background-size: cover;
   background-position: center;
   display: none;
@@ -263,6 +281,12 @@ async function listarPokemones() {
   width: 400px;
   border-radius: 1px;
   border: 2px solid black;
+  margin: 10px;
+}
+#imagenpoke{
+  border-radius: 1px;
+  border: 2px solid black;
+  border-radius: 10px;
   margin: 10px;
 }
 .alturapeso {
