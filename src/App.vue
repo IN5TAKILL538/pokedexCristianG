@@ -33,7 +33,7 @@
           <button id="tipo2" class="btntipo" :style="{ background: obtenerColorPorTipo(tipo2) }">{{ tipo2 }}</button>
         </div>
         <br />
-        <div id="debilidad" class="estadisticas">DEBILIDADES
+        <div id="debilidad" class="estadisticas">DEBILIDADES <br>
       <button class="containerdebilidad" v-for="(debilidad, index) in debilidades" :key="index" :style="{ background: obtenerColorPorTipo(debilidad) }">
         {{ debilidad }}
       </button></div>
