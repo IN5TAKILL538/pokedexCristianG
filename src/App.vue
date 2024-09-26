@@ -44,7 +44,7 @@
         <div id="hp" class="estadisticas">HP <br />{{ statshp }}/252</div>
 
         <div class="contenedorbarras">
-          <hr class="barrastats" id="barrahp" />
+          <hr class="barrastats" id="barrahp"  :style="{ width: (statshp / 252 * 100) + '%' }"/>
         </div>
         <br />
         <div id="attack" class="estadisticas">
@@ -52,7 +52,7 @@
         </div>
 
         <div class="contenedorbarras">
-          <hr class="barrastats" id="barraatk" />
+          <hr class="barrastats" id="barraatk" :style="{ width: (statsatk / 252 * 100) + '%' }"/>
         </div>
         <br />
         <div id="defense" class="estadisticas">
@@ -60,7 +60,7 @@
         </div>
 
         <div class="contenedorbarras">
-          <hr class="barrastats" id="barradf" />
+          <hr class="barrastats" id="barradf" :style="{ width: (statsdf / 252 * 100) + '%' }"/>
         </div>
         <br />
         <div id="spattack" class="estadisticas">
@@ -68,7 +68,7 @@
         </div>
 
         <div class="contenedorbarras">
-          <hr class="barrastats" id="barraatksp" />
+          <hr class="barrastats" id="barraatksp" :style="{ width: (statsatksp / 252 * 100) + '%' }"/>
         </div>
         <br />
         <div id="spdefense" class="estadisticas">
@@ -76,7 +76,7 @@
         </div>
 
         <div class="contenedorbarras">
-          <hr class="barrastats" id="barradfsp" />
+          <hr class="barrastats" id="barradfsp" :style="{ width: (statsdfsp / 252 * 100) + '%' }"/>
         </div>
         <br />
         <div id="speed" class="estadisticas">
@@ -84,7 +84,7 @@
         </div>
 
         <div class="contenedorbarras">
-          <hr class="barrastats" id="barraspeed" />
+          <hr class="barrastats" id="barraspeed" :style="{ width: (statsspeed / 252 * 100) + '%' }"/>
         </div>
         <br />
       </div>
