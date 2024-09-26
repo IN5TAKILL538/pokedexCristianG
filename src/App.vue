@@ -159,7 +159,7 @@ async function listarPokemones() {
      document.getElementById("container").style.backgroundImage = "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-mre9HLrLS6simW75EXxsh8nqz1q8AAR-vA&s')"
      document.getElementById("container").style.opacity = "0.5"
     document.getElementById("container").style.backgroundPosition="center"
-     document.getElementById("container").style.backgroundSize="contain"
+     document.getElementById("container").style.backgroundSize="cover"
     document.getElementById("imgpokemon").style.display="none"
     document.getElementById("datospokemon").style.display="none"
     document.getElementById("estadspokemon").style.display="none"
